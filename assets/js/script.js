@@ -20,8 +20,8 @@ function generatePassword() {
   var pwLength = parseInt(prompt("How many characters would you like your password to contain? (Must be a number between 8 and 128)"));
   // Validation rule establishing that the user entry must be a number between 8-128 or the flow will be stopped from continuing and an alert message will pop up
   if (pwLength < 8 || pwLength > 128 || isNaN(pwLength)) {
-    alert("Your entry is invalid, please follow the parameters.");
-    return false;
+    alert("YOUR ENTRY IS INVALID, PLEASE FOLLOW THE PARAMETERS AND TRY AGAIN.");
+    return ("PASSWORD GENERATION FAILED");
   }
   // Boolean logic to determine whether the lower case letters will be added to the final array from which the password will be generated
   if (confirm("Click OK to confirm including lower case characters.")) {
@@ -38,6 +38,10 @@ function generatePassword() {
   // Same as above but for special characters
   if (confirm("Click OK to confirm including special characters.")) {
     finalArray = finalArray.concat(specCharArray);
+  } else {
+    // Establishing what happens if none of the parameters were selected
+    alert("YOU MUST SELECT AT LEAST ONE OF THE CHARACTER PARAMETERS. PLEASE TRY AGAIN.");
+    return ("PASSWORD GENERATION FAILED");
   }
 
   // Setting new empty string variable which will populate with the characters from each forloop cycle
