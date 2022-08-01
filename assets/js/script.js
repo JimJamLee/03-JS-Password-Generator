@@ -23,23 +23,30 @@ function generatePassword() {
     alert("YOUR ENTRY IS INVALID, PLEASE FOLLOW THE PARAMETERS AND TRY AGAIN.");
     return ("PASSWORD GENERATION FAILED");
   }
+  var useLowCaseArray = confirm("Click OK to confirm including lower case characters.");
+  var useUpperCaseArray = confirm("Click OK to confirm including upper case characters.");
+  var useNumArray = confirm("Click OK to confirm including numeric characters.");
+  var useSpecCharArray = confirm("Click OK to confirm including special characters.");
+
   // Boolean logic to determine whether the lower case letters will be added to the final array from which the password will be generated
-  if (confirm("Click OK to confirm including lower case characters.")) {
+  if (useLowCaseArray === true) {
     finalArray = finalArray.concat(lowCaseArray);
   }
   // Same as above but for the upper case letters
-  if (confirm("Click OK to confirm including upper case characters.")) {
+  if (useUpperCaseArray === true) {
     finalArray = finalArray.concat(upCaseArray);
-  }
+    }
   // Same as above but for numeric characters
-  if (confirm("Click OK to confirm including numeric characters.")) {
+  if (useNumArray === true) {
     finalArray = finalArray.concat(numArray);
-  }
+    }
   // Same as above but for special characters
-  if (confirm("Click OK to confirm including special characters.")) {
+  if (useSpecCharArray === true) {
     finalArray = finalArray.concat(specCharArray);
-  } else {
-    // Establishing what happens if none of the parameters were selected
+    };
+
+  // If no options were selected
+  if (!useLowCaseArray && !useUpperCaseArray && !useNumArray && !useSpecCharArray) {
     alert("YOU MUST SELECT AT LEAST ONE OF THE CHARACTER PARAMETERS. PLEASE TRY AGAIN.");
     return ("PASSWORD GENERATION FAILED");
   }
